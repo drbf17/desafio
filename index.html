@@ -32,7 +32,7 @@
             var otpLink = "caixa.gob.br://meuotp?otp=" + otp;
 
             // Display the OTP link
-            document.getElementById("otpLink").innerHTML = "<a href= Clique aqui para abrir o app e passar o otp>" + otpLink + "</a>";
+            document.getElementById("otpLink").innerHTML = "<a href='" + otpLink + "'> Clique aqui para chamar o app</a>";
         }
 
         function clearOTP() {
