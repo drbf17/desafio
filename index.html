@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate OTP</title>
+</head>
+<body>
+    <h1>Gerador de OTP</h1>
+    <button onclick="generateOTP()">Gerar OTP</button>
+    <button onclick="clearOTP()">Limpar</button>
+    <p id="otpDisplay"></p>
+    <p id="otpLink"></p>
+
+    <script>
+        var otpValue = "";
+
+        function generateOTP() {
+            // Generate a random OTP between 01 and 99
+            var otp = Math.floor(Math.random() * 99) + 1;
+            if (otp < 10) {
+                otp = "0" + otp; // Ensure two-digit OTP format
+            }
+
+            // Store the OTP value
+            otpValue = otp;
+
+            // Display the OTP
+            document.getElementById("otpDisplay").innerText = "OTP: " + otpValue;
+
+            // Create the OTP link with the custom scheme
+            var otpLink = "caixa.gob.br://meuotp?otp=" + otp;
+
+            // Display the OTP link
+            document.getElementById("otpLink").innerHTML = "<a href= Clique aqui para abrir o app e passar o otp>" + otpLink + "</a>";
+        }
+
+        function clearOTP() {
+            // Clear the OTP value and display
+            otpValue = "";
+            document.getElementById("otpDisplay").innerText = "";
+            document.getElementById("otpLink").innerText = "";
+        }
+    </script>
+</body>
+</html>
